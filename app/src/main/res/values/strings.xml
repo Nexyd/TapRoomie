@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TapRoomie</string>
+
+    <!-- Main Activity -->
+    <string name="beer_image_description">beer image</string>
+    <string name="beer_name">beer name</string>
+    <string name="beer_tagline">beer tagline</string>
+
+    <!-- Beer Detail -->
+    <string name="detail_name"><![CDATA[<b>Name:</b>]]> %1$s</string>
+    <string name="detail_description"><![CDATA[<b>Description:</b>]]> %1$s</string>
+    <string name="detail_alcohol"><![CDATA[<b>Alcohol by volume:</b>]]> %1$s</string>
+    <string name="detail_bitterness"><![CDATA[<b>Bitterness:</b>]]> %1$s</string>
+<!--    <string name="detail_food_pairing"><![CDATA[<b>Food pairing:</b>]]>\n %1$s \n %2$s \n %3$s</string> -->
+    <string name="detail_food_pairing">Food pairing:\n %1$s \n %2$s \n %3$s</string>
+    <string name="product_not_available"><b>This product is not available</b></string>
+    <string name="request_replacement">Request replacement</string>
+
+</resources>

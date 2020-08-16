@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="data" type="dani.kotlin.data.DetailViewModel.Companion"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/detailImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/beer_image_description"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_name"
+            android:layout_margin="5dp"
+
+            app:layout_constraintLeft_toRightOf="@id/detailImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TODO: text word wraps -->
+        <TextView
+            android:id="@+id/detail_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="fhjlskbjhqanjkcbkjasnKLfjkSDnfkASJhghweialbgyuwasjkvhweiofhlwesejkfweajfhalfhjlskbjhqanjkcbkjasnKLfjk"
+            android:layout_margin="5dp"
+
+            app:layout_constraintLeft_toRightOf="@id/detailImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_name" />
+
+        <TextView
+            android:id="@+id/detail_alcohol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_alcohol"
+            android:layout_margin="5dp"
+
+            app:layout_constraintLeft_toRightOf="@id/detailImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_description" />
+
+        <TextView
+            android:id="@+id/detail_bitterness"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_bitterness"
+            android:layout_margin="5dp"
+
+            app:layout_constraintLeft_toRightOf="@id/detailImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_alcohol" />
+
+        <TextView
+            android:id="@+id/detail_food_pairing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_food_pairing"
+            android:layout_margin="5dp"
+            android:lines="4"
+
+            app:layout_constraintLeft_toRightOf="@id/detailImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_bitterness" />
+
+        <TextView
+            android:id="@+id/notAvailable"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:text="@string/product_not_available"
+            android:layout_margin="5dp"
+            android:visibility="gone"
+
+            app:layout_constraintLeft_toRightOf="@id/detailImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_food_pairing" />
+
+        <Button
+            android:id="@+id/requestReplacement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/request_replacement"
+
+            app:layout_constraintTop_toBottomOf="@id/notAvailable"
+            app:layout_constraintLeft_toRightOf="@id/detailImage"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
