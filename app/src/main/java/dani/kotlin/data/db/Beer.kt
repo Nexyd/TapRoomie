@@ -7,7 +7,6 @@ import dani.kotlin.data.BeerInfo
 
 @Entity
 data class Beer(
-    //@PrimaryKey(autoGenerate = true)   val uid: Int,
     @PrimaryKey
     @ColumnInfo(name = "beerId")       val beerId: String,
     @ColumnInfo(name = "name")         val name: String?,

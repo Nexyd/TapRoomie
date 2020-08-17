@@ -26,9 +26,7 @@ abstract class BeerDatabase : RoomDatabase() {
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context, BeerDatabase::class.java,
-                    DATABASE_NAME)//.build()
-                    .fallbackToDestructiveMigration()
-                    .build()
+                    DATABASE_NAME).build()
 
                 INSTANCE = instance
                 return instance

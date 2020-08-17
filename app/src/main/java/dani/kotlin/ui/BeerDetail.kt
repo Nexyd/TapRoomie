@@ -37,6 +37,7 @@ class BeerDetail : AppCompatActivity() {
         binding.requestReplacement.setOnClickListener {
             available = false
             binding.notAvailable.visibility = View.VISIBLE
+            binding.requestReplacement.isEnabled = false
         }
 
         data.observe(this, Observer {
@@ -48,8 +49,10 @@ class BeerDetail : AppCompatActivity() {
             binding.detailFoodPairing.text = getString(R.string.detail_food_pairing,
                 it.foodPairing?.get(0), it.foodPairing?.get(1), it.foodPairing?.get(2))
 
-            if (!it.availability)
+            if (!it.availability) {
                 binding.notAvailable.visibility = View.VISIBLE
+                binding.requestReplacement.isEnabled = false
+            }
         })
     }
 

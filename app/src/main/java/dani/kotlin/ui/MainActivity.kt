@@ -68,8 +68,6 @@ class MainActivity : AppCompatActivity(), BeerUpdater {
                 if (items.isNotEmpty())
                     items[0].availability = unavailableBeers[0].availability!!
             }
-
-            println("### size: ${unavailableBeers.size} ###")
         }
 
         Thread(runnable).start()
@@ -90,10 +88,6 @@ class MainActivity : AppCompatActivity(), BeerUpdater {
             loadUnavailableBeers()
             beerAdapter.notifyDataSetChanged()
         }
-    }
-
-    override fun onUpdateFailed() {
-        // TODO: print a message "Error trying to load the items" to the screen
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -117,10 +111,8 @@ class MainActivity : AppCompatActivity(), BeerUpdater {
             val exists = beerDao.exists(beers[position].id!!)
             if (exists != null && exists > 0) {
                 beerDao.update(Beer(beers[position]))
-                println("### updated id: ${beers[position].id} ###")
             } else {
                 beerDao.insert(Beer(beers[position]))
-                println("### created id: ${beers[position].id} ###")
             }
         }
     }
