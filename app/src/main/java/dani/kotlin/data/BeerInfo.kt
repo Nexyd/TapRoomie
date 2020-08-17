@@ -3,6 +3,7 @@ package dani.kotlin.data
 import com.google.gson.annotations.SerializedName
 
 data class BeerInfo(
+    val id: String?,
     val name: String?,
     val tagline: String?,
     val description: String?,
