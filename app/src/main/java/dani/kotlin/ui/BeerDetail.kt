@@ -10,18 +10,18 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.SavedStateViewModelFactory
-import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import dani.kotlin.R
-import dani.kotlin.data.DetailViewModel
+import dani.kotlin.data.model.BeerViewModel
 import dani.kotlin.databinding.BeerDetailBinding
 
 class BeerDetail : AppCompatActivity() {
+
     private lateinit var binding: BeerDetailBinding
-    private val data = DetailViewModel.info
+    private val data = BeerViewModel.detailBeer
     private var available: Boolean? = null
-    private var position  = 0
+    private var position = 0
+    private val positionTag = "position"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class BeerDetail : AppCompatActivity() {
 
         if (intent != null) {
             position = intent.getIntExtra(
-                "position", 0)
+                positionTag, 0)
         }
 
         binding.requestReplacement.setOnClickListener {
@@ -45,7 +45,7 @@ class BeerDetail : AppCompatActivity() {
             binding.detailName.text = formatText(R.string.detail_name, it.name)
             binding.detailDescription.text = formatText(R.string.detail_description, it.description)
             binding.detailAlcohol.text = formatText(R.string.detail_alcohol, it.alcoholByVolume)
-            binding.detailBitterness.text  = formatText(R.string.detail_bitterness, it.bitterness)
+            binding.detailBitterness .text = formatText(R.string.detail_bitterness, it.bitterness)
             binding.detailFoodPairing.text = getString(R.string.detail_food_pairing,
                 it.foodPairing?.get(0), it.foodPairing?.get(1), it.foodPairing?.get(2))
 
@@ -58,13 +58,12 @@ class BeerDetail : AppCompatActivity() {
 
     override fun onBackPressed() {
         val intent = Intent()
-        intent.putExtra("position",  position)
+        intent.putExtra(positionTag,  position)
 
         if (available != null)
             intent.putExtra("available", available!!)
 
         setResult(Activity.RESULT_OK, intent)
-
         super.onBackPressed()
     }
 

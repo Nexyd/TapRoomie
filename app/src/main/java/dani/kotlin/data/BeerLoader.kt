@@ -1,22 +1,23 @@
 package dani.kotlin.data
 
 import com.google.gson.Gson
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.withContext
+import dani.kotlin.callbacks.BeerUpdater
+import dani.kotlin.data.model.BeerInfo
+import dani.kotlin.data.model.BeerViewModel
 import okhttp3.*
 import java.io.IOException
 
 class BeerLoader(private val listener: BeerUpdater) {
+
     private val client = OkHttpClient()
     private val gson = Gson()
+//    private val beers = ArrayList<BeerInfo>()
 
-    suspend fun getBeers() {
-        withContext(Dispatchers.IO) {
-            callApi(1)
-            callApi(2)
-        }
+    fun loadBeerPages(numPages: Int) {
+        for (page: Int in 1..numPages)
+            callApi(page)
+
+//        listener.onUpdateReceived(beers)
     }
 
     private fun callApi(page: Int) {
@@ -34,10 +35,11 @@ class BeerLoader(private val listener: BeerUpdater) {
                     Array<BeerInfo>::class.java)
 
                 if (result != null) {
+//                    beers.addAll(result.toList()
+//                        as ArrayList<BeerInfo>)
+
                     listener.onUpdateReceived(result
                         .toList() as ArrayList<BeerInfo>)
-                } else {
-                    listener.onUpdateFailed()
                 }
             }
         })

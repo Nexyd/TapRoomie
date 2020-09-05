@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="data" type="dani.kotlin.data.DetailViewModel.Companion"/>
+        <variable name="data" type="dani.kotlin.data.model.BeerViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

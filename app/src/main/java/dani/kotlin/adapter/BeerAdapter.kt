@@ -3,20 +3,17 @@ package dani.kotlin.adapter
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import dani.kotlin.R
-import dani.kotlin.data.BeerInfo
-import dani.kotlin.data.DetailViewModel
+import dani.kotlin.data.model.BeerInfo
+import dani.kotlin.data.model.BeerViewModel
 import dani.kotlin.ui.BeerDetail
 
 class BeerAdapter(
@@ -40,7 +37,7 @@ class BeerAdapter(
         holder.available = dataSet[position].availability
 
         holder.itemView.setOnClickListener {
-            DetailViewModel.info.postValue(dataSet[position])
+            BeerViewModel.detailBeer.postValue(dataSet[position])
             val intent = Intent(it.context,
                 BeerDetail::class.java)
 

@@ -3,7 +3,7 @@ package dani.kotlin.data.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import dani.kotlin.data.BeerInfo
+import dani.kotlin.data.model.BeerInfo
 
 @Entity
 data class Beer(

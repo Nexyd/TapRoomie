@@ -1,4 +1,4 @@
-package dani.kotlin.data
+package dani.kotlin.data.model
 
 import com.google.gson.annotations.SerializedName
 
